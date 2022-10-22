@@ -1,0 +1,26 @@
+@import "./import.scss";
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font-primary;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.bgColor {
+  background-color: $bgColor;
+}
+
+// flex
+.flex_between_center {
+  @include flex(row, space-between, center, none, none);
+}
+
+.flex_start_center {
+  @include flex(row, start, center, none, none);
+}

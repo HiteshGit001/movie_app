@@ -1,0 +1,28 @@
+@import "../../scss/import";
+
+.show_card {
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.img_card {
+  width: 10rem !important;
+}
+
+.scrol {
+  overflow: hidden;
+  overflow-x: scroll;
+  cursor: pointer;
+}
+
+.scrol {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrol::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}

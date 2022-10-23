@@ -1,0 +1,37 @@
+@import "../../scss/import";
+
+.poster{
+  gap: 0.85rem;
+}
+
+.production {
+  overflow: hidden;
+  overflow-x: scroll;
+  gap: 0.5rem;
+  height: 200px;
+}
+
+.dis_title {
+  @include font($font-primary, 1.25rem, 2rem, 600, $white);
+}
+
+.dis_content{
+  @include font($font-primary, 1rem, 1.25rem, 400, $gray);
+}
+
+.logo {
+  background-color: $bgShade;
+  border-radius: 0.5rem;
+  @include flex(column, center, center, none, 0.4rem);
+  height: 100% !important;
+
+  img {
+    width: 50%;
+  }
+
+  p {
+    width: 15rem !important;
+    text-align: center;
+    @include font($font-primary, 1.25rem, 2rem, 600, $white);
+  }
+}

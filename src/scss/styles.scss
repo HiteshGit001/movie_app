@@ -14,6 +14,7 @@ p {
 
 .bgColor {
   background-color: $bgColor;
+  color: $white;
 }
 
 // flex
@@ -21,6 +22,14 @@ p {
   @include flex(row, space-between, center, none, none);
 }
 
+.flex_between_start {
+  @include flex(row, space-between, start, none, none);
+}
+
 .flex_start_center {
   @include flex(row, start, center, none, none);
+}
+
+.flex_start_start {
+  @include flex(row, start, start, none, none);
 }

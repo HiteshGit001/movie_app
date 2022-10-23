@@ -1,13 +1,18 @@
 import React from 'react';
 import styles from "./NavBar.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useData } from '../../context/DataContext';
 
 const NavBar = () => {
   const history = useNavigate();
+  const { trending, setTrinding, trendingType, setTrendingType } = useData();
+
   const navigateToHome = () => {
+    setTrendingType("all");
     history("/");
   }
   const navigateToMovie = () => {
+    setTrendingType("movie");
     history("/movie");
   }
   return (

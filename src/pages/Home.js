@@ -1,29 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import NavBar from '../component/NavBar/NavBar'
+import NavBar from '../component/NavBar/NavBar';
+import "../scss/pages.scss";
 import { POSTER, TRENDING } from '../config/config';
+import { useData } from '../context/DataContext';
 import { fetchTrending } from '../servicess/fetch.serviecess'
+import { useNavigate } from 'react-router-dom';
+import DetailsCard from '../component/DetailsCard/DetailsCard';
 
 const Home = () => {
-  const [trending, setTrending] = useState();
+  const { trending, setTrinding, trendingType, setTrendingType, movieID, setMovieID } = useData();
+  // const [trending, setTrending] = useState();
   const fetchDayTrend = async () => {
-    const response = await fetchTrending();
-    setTrending(response?.data?.results);
+    const response = await fetchTrending(trendingType);
+    setTrinding(response?.data?.results);
     console.log(response, "jksjd");
   }
   useEffect(() => {
     fetchDayTrend();
   }, [])
   return (
-    <div>
+    <div className="page_padding">
       <NavBar />
-      {trending?.map((ele, id) => {
-        return (
-          <>
-            <img src={`${POSTER}${ele?.poster_path}`} alt="" />
-            <p>{ele?.id}</p>
-          </>
-        )
-      })}
+      <DetailsCard />
     </div>
   )
 }

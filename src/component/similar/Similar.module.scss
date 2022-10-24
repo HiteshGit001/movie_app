@@ -1,0 +1,12 @@
+@import "../../scss/import";
+
+.similar_card {
+  height: 600px !important;
+  overflow: hidden;
+  overflow-y: scroll;
+  text-align: center;
+
+  img {
+    width: 200px;
+  }
+}

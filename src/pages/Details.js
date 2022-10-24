@@ -1,16 +1,17 @@
 import { Button } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import NavBar from '../component/NavBar/NavBar';
 import ShowStat from '../component/showStat/ShowStat';
 import { useData } from '../context/DataContext';
-import { fetchMovie, fetchVideo } from '../servicess/fetch.serviecess';
+import { fetchMovie, fetchTV, fetchVideo } from '../servicess/fetch.serviecess';
 
 const Details = () => {
   const { movieID, movieDetails, setMovieDetails, videoData, setVideoData, youtubeKey, setYoutubeKey } = useData();
-
+  const [searchparams] = useSearchParams();
+  console.log(searchparams.get("movie"), 'dkf')
   const fetchMovieDetails = async () => {
-    const response = await fetchMovie(movieID);
+    const response = searchparams.get("movie") === "true" ? await fetchMovie(movieID) : await fetchTV(movieID);
     if (response?.status === 200) {
       setMovieDetails(response?.data);
     }
@@ -20,9 +21,10 @@ const Details = () => {
   }
   const fetchvideo = async () => {
     const videoRes = await fetchVideo(movieID);
+    console.log(videoRes, 'vid')
     if (videoRes?.status === 200) {
       setVideoData(videoRes?.data);
-      let keys = videoData?.results?.filter((ele, id) => ele.name === "Official Trailer");
+      let keys = videoData?.results?.filter((ele, id) => ele?.name === "Official Trailer");
       setYoutubeKey(keys?.map((ele) => {
         return ele?.key;
       }));
@@ -32,10 +34,13 @@ const Details = () => {
       setVideoData("");
     }
   }
+  const fetchNull = () => {
+    return null;
+  }
   useEffect(() => {
     fetchMovieDetails();
-    fetchvideo();
-  }, []);
+    searchparams.get("movie") === "true" ? fetchvideo() : fetchNull();
+  }, [movieID]);
 
   return (
     <div className="page_padding">

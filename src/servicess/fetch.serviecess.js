@@ -1,5 +1,5 @@
 import axios from "axios"
-import { MOVIE, TRENDING, VIDEOAPI } from "../config/config"
+import { MOVIE, SEARCH, SIMILAR, TRENDING, TV, VIDEOAPI } from "../config/config"
 
 export const fetchTrending = (trendingType) => {
   const response = axios.get(TRENDING(trendingType))
@@ -26,6 +26,39 @@ export const fetchMovie = (id) => {
 
 export const fetchVideo = (key) => {
   const response = axios.get(VIDEOAPI(key))
+    .then((res) => {
+      return res;
+    })
+    .catch((error) => {
+      return error;
+    })
+  return response;
+}
+
+export const fetchTV = (id) => {
+  const response = axios.get(TV(id))
+    .then((res) => {
+      return res;
+    })
+    .catch((error) => {
+      return error;
+    })
+  return response;
+}
+
+export const fetchSearch = (name, type) => {
+  const response = axios.get(SEARCH(name, type))
+    .then((res) => {
+      return res;
+    })
+    .catch((error) => {
+      return error;
+    })
+  return response;
+}
+
+export const fetchSimilar = (key) => {
+  const response = axios.get(SIMILAR(key))
     .then((res) => {
       return res;
     })

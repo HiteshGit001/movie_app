@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@chakra-ui/react';
 import React, { createContext, useContext, useState } from 'react'
 
 const Data = createContext();
@@ -6,12 +7,14 @@ export const useData = () => useContext(Data);
 
 const DataContext = ({ children }) => {
 
+  const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
   const [trending, setTrinding] = useState();
   const [trendingType, setTrendingType] = useState("all");
   const [movieID, setMovieID] = useState();
   const [movieDetails, setMovieDetails] = useState();
   const [videoData, setVideoData] = useState();
   const [youtubeKey, setYoutubeKey] = useState("");
+  const [similar, setSimilar] = useState();
   const value = {
     trending, setTrinding,
     trendingType, setTrendingType,
@@ -19,6 +22,8 @@ const DataContext = ({ children }) => {
     movieDetails, setMovieDetails,
     videoData, setVideoData,
     youtubeKey, setYoutubeKey,
+    similar, setSimilar,
+    isLargerThan1024,
   }
   return (
     <Data.Provider value={value}>

@@ -5,15 +5,15 @@ import Similar from '../similar/Similar';
 import styles from "./ShowStat.module.scss";
 
 const ShowStat = ({ movieDetails }) => {
-  const { trending } = useData();
+  const { trending, isLargerThan1024 } = useData();
   console.log(movieDetails, 'kdsf')
   return (
-    <div>
+    <div className={styles.show_card}>
       <div className={`flex_start_start ${styles.poster}`}>
         <div>
           <img src={`${POSTER}${movieDetails?.poster_path}`} alt="movie poster" />
         </div>
-        <div>
+        <div className={styles.details}>
           <p className={styles.dis_title}>Status</p>
           <p className={styles.dis_content}>{movieDetails?.status}</p>
           <p className={styles.dis_title}>Release Date : </p>
@@ -27,17 +27,30 @@ const ShowStat = ({ movieDetails }) => {
             )
           })}
         </div>
+        {isLargerThan1024 ? (
+          <div>
+            <Similar />
+          </div>
+        ) : null}
+      </div>
+      <div className={styles.details}>
+        <div className={styles.bg_card}>
+          <img className={styles.sop_img} src={`${POSTER}${movieDetails?.backdrop_path}`} alt="poster" />
+          {isLargerThan1024 ? (<div className={styles.make_bg}>
+            <p className={styles.dis_title}>Sypnosis</p>
+            <p className={styles.dis_content}>{movieDetails?.overview}</p>
+          </div>) : null}
+        </div>
         <div>
-          <Similar />
+          {isLargerThan1024 ? null : (<div className={styles.make_bg}>
+            <p className={styles.dis_title}>Sypnosis</p>
+            <p className={styles.dis_content}>{movieDetails?.overview}</p>
+          </div>)}
         </div>
       </div>
       <div>
-        <p className={styles.dis_title}>Sypnosis</p>
-        <p className={styles.dis_content}>{movieDetails?.overview}</p>
-      </div>
-      <div>
         <p className={styles.dis_title}>Production Companies</p>
-        <div className={`flex_start_center ${styles.production}`}>
+        <div className={`flex_start_center scrol ${styles.production}`}>
           {movieDetails?.production_companies?.map((ele) => {
             return (
               <div className={styles.logo}>
@@ -48,6 +61,11 @@ const ShowStat = ({ movieDetails }) => {
           })}
         </div>
       </div>
+      {isLargerThan1024 ? null : (
+        <div>
+          <Similar />
+        </div>
+      )}
     </div>
   )
 }

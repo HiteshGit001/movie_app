@@ -1,6 +1,6 @@
 @import "../../scss/import";
 
-.poster{
+.poster {
   gap: 0.85rem;
 }
 
@@ -15,8 +15,8 @@
   @include font($font-primary, 1.25rem, 2rem, 600, $white);
 }
 
-.dis_content{
-  @include font($font-primary, 1rem, 1.25rem, 400, $gray);
+.dis_content {
+  @include font($font-primary, 1rem, 1.25rem, 400, $white);
 }
 
 .logo {
@@ -33,5 +33,48 @@
     width: 15rem !important;
     text-align: center;
     @include font($font-primary, 1.25rem, 2rem, 600, $white);
+  }
+}
+
+.details {
+  padding: 1rem 0;
+}
+
+.show_card {
+  margin-top: 1.5rem;
+}
+
+.sop_img {
+  border-radius: 0.85rem !important;
+}
+
+.bg_card {
+  position: relative;
+
+  img {
+    width: 50%;
+  }
+
+  .make_bg {
+    padding: 0.85rem;
+    @include flex(column, center, start, none, none);
+    width: 50%;
+    position: absolute;
+    bottom: 0%;
+    height: 100%;
+    color: $white;
+    background: linear-gradient(269.96deg, rgba(29, 29, 29, 0.505) 0.04%, rgb(0, 0, 0) 99.5%);
+
+    p:first-child {
+      padding: 0.85rem 0;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .bg_card {
+    img {
+      width: 100% !important;
+    }
   }
 }

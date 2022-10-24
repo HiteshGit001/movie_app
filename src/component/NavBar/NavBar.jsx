@@ -18,9 +18,9 @@ const NavBar = () => {
   }
   return (
     <div className={`flex_start_center ${styles.nav_gap}`}>
-      <h2 onClick={navigateToHome}>Movie App</h2>
-      <p onClick={navigateToHome}>Home</p>
-      <p onClick={navigateToMovie}>Movie</p>
+      <h2 className="logo pointer" onClick={navigateToHome}>Movie App</h2>
+      <p className="nav_item pointer" onClick={navigateToHome}>Home</p>
+      <p className="nav_item pointer" onClick={navigateToMovie}>Movie</p>
       {/* <div className='flex_start_center'>
         <Input type="text" placeholder="Search Movie or TV Shows" />
         <Button>Search</Button>

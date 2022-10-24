@@ -19,7 +19,7 @@ const Movies = () => {
   return (
     <div className="page_padding">
       <NavBar />
-      <DetailsCard />
+      <DetailsCard movie={true} />
     </div>
   )
 }

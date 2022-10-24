@@ -21,9 +21,9 @@ const Home = () => {
   return (
     <div className="page_padding">
       <NavBar />
-      <p>Trending Movie</p>
+      <p className="sub_title">Trending Movie</p>
       <DetailsCard movie={true} />
-      <p>Trending TV Show</p>
+      <p className="sub_title">Trending TV Show</p>
       <DetailsCard movie={false} />
     </div>
   )

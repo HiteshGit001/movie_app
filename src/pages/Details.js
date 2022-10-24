@@ -45,6 +45,7 @@ const Details = () => {
   return (
     <div className="page_padding">
       <NavBar />
+      <p className="sub_title">{movieDetails?.title}</p>
       {youtubeKey?.toString() !== "" || null || undefined ?
         <iframe width="100%" height="300" src={`https://youtube.com/embed/${youtubeKey?.toString()}?autoplay=0`}></iframe>
         : <p>kds</p>}

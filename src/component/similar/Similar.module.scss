@@ -1,12 +1,32 @@
 @import "../../scss/import";
 
 .similar_card {
-  height: 600px !important;
-  overflow: hidden;
-  overflow-y: scroll;
-  text-align: center;
+  width: 500px !important;
+  margin-left: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 
   img {
     width: 200px;
   }
+}
+
+.similar_sm {
+  gap: 0.85rem;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+
+  img {
+    border-radius: 0.85rem;
+  }
+
+  p {
+    width: 10rem;
+  }
+}
+
+.sim {
+  text-align: center;
+  padding: 1rem 0;
 }

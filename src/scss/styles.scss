@@ -33,3 +33,33 @@ p {
 .flex_start_start {
   @include flex(row, start, start, none, none);
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.scrol {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrol::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+// font
+
+.sub_title {
+  @include font($font-primary, 1.25rem, 2rem, 600, $white);
+}
+
+.logo {
+  @include font($font-primary, 2rem, 2.25rem, 700, $white);
+}
+
+.nav_item {
+  @include font($font-primary, 1rem, 2rem, 400, $gray);
+}

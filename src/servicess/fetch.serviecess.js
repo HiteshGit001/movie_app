@@ -46,8 +46,8 @@ export const fetchTV = (id) => {
   return response;
 }
 
-export const fetchSearch = (name, type) => {
-  const response = axios.get(SEARCH(name, type))
+export const fetchSearch = (name) => {
+  const response = axios.get(SEARCH(name))
     .then((res) => {
       return res;
     })

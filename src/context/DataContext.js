@@ -15,6 +15,7 @@ const DataContext = ({ children }) => {
   const [videoData, setVideoData] = useState();
   const [youtubeKey, setYoutubeKey] = useState("");
   const [similar, setSimilar] = useState();
+  const [movieSearched, setMovieSearched] = useState([]);
   const value = {
     trending, setTrinding,
     trendingType, setTrendingType,
@@ -23,6 +24,7 @@ const DataContext = ({ children }) => {
     videoData, setVideoData,
     youtubeKey, setYoutubeKey,
     similar, setSimilar,
+    movieSearched, setMovieSearched,
     isLargerThan1024,
   }
   return (

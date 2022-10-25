@@ -4,8 +4,8 @@ import { POSTER } from '../../config/config';
 import { useData } from '../../context/DataContext';
 import styles from "./DetailsCard.module.scss";
 
-const DetailsCard = ({ movie }) => {
-  const { trending, setYoutubeKey, setTrinding, trendingType, setTrendingType, movieID, setMovieID } = useData();
+const DetailsCard = ({ movie, search = false }) => {
+  const { trending, setYoutubeKey, setTrinding, trendingType, setTrendingType, movieID, setMovieID, movieSearched } = useData();
   const history = useNavigate();
   const navigateDetails = (id) => {
     setMovieID(id);
@@ -18,6 +18,7 @@ const DetailsCard = ({ movie }) => {
       }).toString(),
     });
   };
+  // console.log(movieSearched, "chke");
   return (
     <>
       <div className={`flex_start_start ${styles.scrol}`}>
@@ -37,6 +38,7 @@ const DetailsCard = ({ movie }) => {
               </div>
             )
           })}
+
       </div>
     </>
   )

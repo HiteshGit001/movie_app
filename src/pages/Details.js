@@ -19,16 +19,16 @@ const Details = () => {
       setMovieDetails("");
     }
   }
+  let keys;
   const fetchvideo = async () => {
     const videoRes = await fetchVideo(movieID);
     console.log(videoRes, 'vid')
     if (videoRes?.status === 200) {
       setVideoData(videoRes?.data);
-      let keys = videoData?.results?.filter((ele, id) => ele?.name === "Official Trailer");
+      keys = videoData?.results?.filter((ele, id) => ele?.name === "Official Trailer");
       setYoutubeKey(keys?.map((ele) => {
         return ele?.key;
       }));
-      console.log(youtubeKey?.toString(), 'ouo');
     }
     else {
       setVideoData("");

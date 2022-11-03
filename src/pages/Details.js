@@ -1,6 +1,5 @@
-import { Button } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import NavBar from '../component/NavBar/NavBar';
 import ShowStat from '../component/showStat/ShowStat';
 import { useData } from '../context/DataContext';
@@ -47,8 +46,8 @@ const Details = () => {
       <NavBar />
       <p className="sub_title">{movieDetails?.title}</p>
       {youtubeKey?.toString() !== "" || null || undefined ?
-        <iframe width="100%" height="300" src={`https://youtube.com/embed/${youtubeKey?.toString()}?autoplay=0`}></iframe>
-        : <p>kds</p>}
+        <iframe title="none" width="100%" height="300" src={`https://youtube.com/embed/${youtubeKey?.toString()}?autoplay=0`}></iframe>
+        : <p></p>}
       <div>
         <ShowStat movieDetails={movieDetails} />
       </div>

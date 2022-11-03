@@ -5,7 +5,7 @@ import { useData } from '../../context/DataContext';
 import styles from "./DetailsCard.module.scss";
 
 const DetailsCard = ({ movie, search = false }) => {
-  const { trending, setYoutubeKey, setTrinding, trendingType, setTrendingType, movieID, setMovieID, movieSearched } = useData();
+  const { trending, setYoutubeKey, movieID, setMovieID } = useData();
   const history = useNavigate();
   const navigateDetails = (id) => {
     setMovieID(id);
@@ -18,7 +18,7 @@ const DetailsCard = ({ movie, search = false }) => {
       }).toString(),
     });
   };
-  // console.log(movieSearched, "chke");
+
   return (
     <>
       <div className={`flex_start_start ${styles.scrol}`}>

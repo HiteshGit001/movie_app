@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import NavBar from '../component/NavBar/NavBar';
 import "../scss/pages.scss";
-import { POSTER, TRENDING } from '../config/config';
+import { POSTER } from '../config/config';
 import { useData } from '../context/DataContext';
 import { fetchTrending } from '../servicess/fetch.serviecess'
 import { createSearchParams, useNavigate } from 'react-router-dom';
@@ -9,8 +9,7 @@ import DetailsCard from '../component/DetailsCard/DetailsCard';
 import styles from "../component/DetailsCard/DetailsCard.module.scss";
 
 const Home = () => {
-  const { trending, setTrinding, trendingType, setYoutubeKey, movieID, setMovieID, movieSearched, setMovieSearched, } = useData();
-  // const [trending, setTrending] = useState();
+  const { setTrinding, trendingType, setYoutubeKey, movieID, setMovieID, movieSearched, } = useData();
   const history = useNavigate();
   const fetchDayTrend = async () => {
     const response = await fetchTrending(trendingType);
